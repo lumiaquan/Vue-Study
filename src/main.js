@@ -13,6 +13,14 @@ import appcss from '../lib/mui/css/app.css'
 
 import router from './router.js'
 
+import { Swipe, SwipeItem } from 'mint-ui';
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
+// 导入vue-resource
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 var vm = new Vue({
   el:'#app',
   data:{},
