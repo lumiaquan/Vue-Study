@@ -8,7 +8,7 @@ import SearchContainer from './components/tabbat/ShopcarContainer.vue'
 
 var router = new VueRouter({
   routes:[
-    {path:'/',component:HomeContainer},
+    {path:'/',redirect:'/home'},
     {path:'/home',component:HomeContainer},
     {path:'/member',component:MemberContainer},
     {path:'/shopcar',component:ShopcarContainer},

@@ -10,6 +10,9 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-
+<style scoped>
+  .app-container{
+    padding-top: 40px;
+		overflow-x: hidden;
+  }
 </style>

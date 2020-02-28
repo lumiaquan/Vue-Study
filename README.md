@@ -19,4 +19,10 @@
 ## 制作首页轮播图布局
 
 ## 加载首页轮播图数据
-1.获取数据，使用 vue-resource
+1. 获取数据，使用 vue-resource
+2. 使用 vue-resource 的 this.$http.get 获取数据
+3. 获取到的数据要保存在data中
+4. 使用 v-for 循环渲染 每个 item 项
+
+
+## 改造 九宫格 区域的样式
