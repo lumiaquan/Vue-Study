@@ -12,7 +12,6 @@
       <div class="content" v-html="news.content"></div>
     </div>
 
-
     <comment-box></comment-box>
   </div>
 </template>
