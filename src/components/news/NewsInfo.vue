@@ -7,7 +7,7 @@
         <span>点击 : {{ news.click }}次</span>
       </p>
 
-      <hr/>
+      <hr>
 
       <div class="content" v-html="news.content"></div>
     </div>
