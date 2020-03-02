@@ -13,13 +13,22 @@ import appcss from '../lib/mui/css/app.css'
 
 import router from './router.js'
 
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Swipe, SwipeItem, Button } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button)
 
 // 导入vue-resource
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+Vue.http.options.root='http://www.liulongbin.top:3005'
+
+// 导入格式化时间插件
+import moment from "moment"
+// 定义过滤器
+Vue.filter('dataFormat',(dataStr,pattern = "YYYY-MM-DD HH:mm:ss")=>{
+  return moment(dataStr).format(pattern)
+})
 
 var vm = new Vue({
   el:'#app',

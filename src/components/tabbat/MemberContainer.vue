@@ -11,9 +11,6 @@ export default {
 </script>
 
 <style  scoped>
-.app-container{
-    padding-top: 40px;
-		overflow-x: hidden;
-  }
+
 </style>
 
