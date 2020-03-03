@@ -12,7 +12,7 @@
       <div class="content" v-html="news.content"></div>
     </div>
 
-    <comment-box></comment-box>
+    <comment-box :id="id"></comment-box>
   </div>
 </template>
 
