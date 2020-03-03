@@ -22,6 +22,10 @@ Vue.component(Button.name, Button)
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.http.options.root='http://www.liulongbin.top:3005'
+Vue.http.options.emulateJSON = true
+
+
+
 
 // 导入格式化时间插件
 import moment from "moment"

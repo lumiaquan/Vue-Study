@@ -2,13 +2,13 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请输入您想说的话(最多120字)" maxlength="120">
+        <textarea placeholder="请输入您想说的话(最多120字)" maxlength="120" v-model="myComment">
       </textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
         <div class="cmt-list">
             <div class="cmt-item" v-for="item in comments" :key="item.index">
                 <div class="cmt-title">
-                    &nbsp;第{{ item.index }}楼&nbsp;&nbsp;用户 : {{ item.user_name }}&nbsp;&nbsp;发表时间 : {{ item.add_time | dataFormat }}
+                    &nbsp;第{{ id }}楼&nbsp;&nbsp;用户 : {{ item.user_name }}&nbsp;&nbsp;发表时间 : {{ item.add_time | dataFormat }}
                 </div>
                 <div class="cmt-content">
                     {{ item.content == 'undefined' ? '此用户很懒，没有评论' : item.content }}
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import { Toast } from 'mint-ui'
+  import { Toast } from 'mint-ui'
   export default {
     created() {
       this.getcomments()
@@ -28,7 +28,8 @@
     data() {
       return {
         comments:[],
-        pageIndex: 1
+        pageIndex: 1,
+        myComment: ''
       }
     },
     methods: {
@@ -44,6 +45,20 @@
       loadingmore(){
         this.pageIndex++
         this.getcomments()
+      },
+      postComment(){
+        if(this.myComment == ''){
+          Toast('评论不能为空！')
+        }else{
+          this.$http.post('api/postcomment/'+ this.id ,{ content: this.myComment.trim() }).then(res => {
+            if(res.body.status = 0){
+              var cmt = { user_name: 'Magisk', add_time: Date.now(), content: this.myComment}
+              this.comments.unshift(cmt)
+              this.myComment = ''
+              Toast('发表评论成功！')
+            }
+          })
+        }
       }
     },
     props:[
