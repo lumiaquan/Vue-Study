@@ -5,8 +5,14 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import app from './App.vue'
 
-import { Header } from 'mint-ui'
-Vue.component(Header.name, Header);
+// import { Header } from 'mint-ui'
+// import { Lazyload } from 'mint-ui';
+// Vue.use(Lazyload);
+// Vue.component(Header.name, Header);
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
+
 import MUI from '../lib/mui/css/mui.min.css'
 import icons from '../lib/mui/css/icons-extra.css'
 import appcss from '../lib/mui/css/app.css'
@@ -24,6 +30,8 @@ Vue.use(VueResource)
 Vue.http.options.root='http://www.liulongbin.top:3005'
 Vue.http.options.emulateJSON = true
 
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 
 

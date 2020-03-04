@@ -6,9 +6,9 @@
       </textarea>
         <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
         <div class="cmt-list">
-            <div class="cmt-item" v-for="item in comments" :key="item.index">
+            <div class="cmt-item" v-for="(item,index) in comments" :key="index">
                 <div class="cmt-title">
-                    &nbsp;第{{ id }}楼&nbsp;&nbsp;用户 : {{ item.user_name }}&nbsp;&nbsp;发表时间 : {{ item.add_time | dataFormat }}
+                    &nbsp;第{{ index+1 }}楼&nbsp;&nbsp;用户 : {{ item.user_name }}&nbsp;&nbsp;发表时间 : {{ item.add_time | dataFormat }}
                 </div>
                 <div class="cmt-content">
                     {{ item.content == 'undefined' ? '此用户很懒，没有评论' : item.content }}
@@ -37,6 +37,7 @@
         this.$http.get('api/getcomments/'+this.id+'?pageindex='+this.pageIndex).then(res => {
           if(res.body.status == 0){
             this.comments = this.comments.concat(res.body.message)
+            console.log(this.comments)
           }else{
             Toast('获取评论数据失败！')
           }

@@ -19,7 +19,7 @@ module.exports = {
       {test:/\.css$/,use:['style-loader','css-loader']},
       {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
       {test:/\.scss$/,use:['style-loader','css-loader','sass-loader']}, 
-      {test:/\.(jpg|bmp|jpeg|png)$/,use:{loader:'url-loader',options:{esModule: false}}},
+      {test:/\.(jpg|bmp|jpeg|png|gif)$/,use:{loader:'url-loader',options:{esModule: false}}},
       // limit的值是图片的大小 单位为 byte ， 如果我们引用的图片小于这个值会进行base64转码，等于或大于 就不转码
       { test: /\.(ttf|eot|svg|woff|woff2|otf)$/, use: 'url-loader' },
       {test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
